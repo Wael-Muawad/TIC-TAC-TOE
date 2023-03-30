@@ -1,0 +1,19 @@
+<h1>
+  Current Player: <span [style.fontweight]="'bold'">{{ getPlayer() }}</span>
+</h1>
+
+<h2 *ngIf="winner">Player {{ winner }} won the game!</h2>
+
+<div>
+  <button nbButton outline status="danger"  (click)="newGame()">Start New Game</button>
+</div>
+<br>
+
+<main>
+  <app-square
+    *ngFor="let sq of squares; let i = index"
+    [SquareValue]="sq"
+    (click)="makeMove(i)"
+  >
+  </app-square>
+</main>
